@@ -164,6 +164,10 @@ main .contenedor_modelos .modelo img {
   margin-bottom: 50px;
   padding: 5px;
 }
+main .contenedor_modelos .modelo img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 main .contenedor_modelos .modelo .detalles_modelo {
   width: 100%;
   display: flex;
@@ -190,6 +194,8 @@ main .contenedor_modelos .modelo .detalles_modelo button {
 main .contenedor_modelos .modelo .detalles_modelo button:hover {
   background-color: hsl(168, 55%, 65%);
   color: hsl(210, 29%, 21%);
+  transform: scale(1.1);
+  font-size: 0.93rem;
 }
 
 .carrito_container {
@@ -223,6 +229,10 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
 }
 .contenedor_carrito .autos_en_carrito .eliminar {
   padding-right: 20px;
+  cursor: pointer;
+}
+.contenedor_carrito .autos_en_carrito .eliminar:hover {
+  color: #901;
 }
 
 .carrito_acciones {
@@ -240,6 +250,11 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
   color: hsl(192, 15%, 94%);
   text-align: center;
   background-color: hsl(168, 55%, 65%);
+  cursor: pointer;
+}
+
+.vaciar_carrito:hover {
+  color: #901;
 }
 
 .comprar {
@@ -266,6 +281,11 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
   text-align: center;
   font-size: 1rem;
   background-color: hsl(168, 45%, 49%);
+  cursor: pointer;
+}
+
+.comprar_ahora:hover {
+  color: hsl(168, 55%, 65%);
 }
 
 .disable {

@@ -209,6 +209,10 @@ main{
                 margin-bottom: 50px;
                 padding: 5px
             };
+            img:hover{
+                transform: scale(1.1);
+                cursor: pointer;
+            }
             .detalles_modelo{
                 
                 width: 100%;
@@ -238,6 +242,9 @@ main{
 
                     background-color: $greenLigth;
                     color: $black;
+                    transform: scale(1.1);
+                    
+                    font-size: 0.93rem;
 
                 }
                 
@@ -283,6 +290,10 @@ main{
             }
             .eliminar{
                 padding-right: 20px;
+                cursor: pointer;
+            }
+            .eliminar:hover{
+                color: #901;
             }      
         }
         
@@ -304,6 +315,10 @@ main{
         color: $white;
         text-align: center;
         background-color: $greenLigth;
+        cursor: pointer;
+    }
+    .vaciar_carrito:hover{
+        color: #901;
     }
     
     .comprar{
@@ -329,10 +344,16 @@ main{
         text-align: center;
         font-size: 1rem;
         background-color: $green;
+        cursor: pointer;
+    }
+
+    .comprar_ahora:hover{
+        color: $greenLigth;
     }
     .disable{
         display: none;
     }
+
 
 
 
