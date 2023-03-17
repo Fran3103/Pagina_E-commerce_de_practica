@@ -1,6 +1,10 @@
 const contenedorModelos = document.querySelector('#contenedor_modelos');
 const botonesMenu = document.querySelectorAll('.menu_btn');
 const titulo  = document.querySelector('#titulo_principal');
+let botonAgregar = document.querySelectorAll('.comprar_btn');
+let numerito = document.querySelector('.numero');
+
+
 
 
 const Cards = [
@@ -336,6 +340,10 @@ function cargarAutos(categorias){
 
         contenedorModelos.append(div);
     })
+    actualizarBotones()
+
+    
+
 }
 
 cargarAutos(Cards);
@@ -343,20 +351,74 @@ cargarAutos(Cards);
 botonesMenu.forEach(boton => {
     boton.addEventListener('click', (e)=>{
 
+        botonesMenu.forEach(boton=> boton.classList.remove('activo'))
+        e.currentTarget.classList.add('activo');
         if(e.currentTarget.id != "todos"){
         
         const tituloCategoria = Cards.find(card => card.categoria.id === e.currentTarget.id);
-        titulo.innerText = tituloCategoria.categoria.nombre; 
+        titulo.innerText = tituloCategoria.categoria.nombre;
+        
+        botonesMenu.forEach(boton=> boton.classList.remove('activo'))
+        e.currentTarget.classList.add('activo');
+
 
         const categorias= Cards.filter(card => card.categoria.id === e.currentTarget.id);
         cargarAutos(categorias);
+
         
         }
         else{
             titulo.innerText = ('Todos los Modelos')
             cargarAutos(Cards)
+            
         }
-
+        
     })
 })
 
+
+
+function actualizarBotones(){
+    botonAgregar = document.querySelectorAll('.comprar_btn');
+
+    botonAgregar.forEach(boton => {
+        boton.addEventListener('click', agregarAlcarrito);
+    })
+    
+}
+let productoEnCarrito;
+
+let productoEnCarritoLS = localStorage.getItem('productos-en-carrito');
+
+if (productoEnCarritoLS){
+    productoEnCarrito = JSON.parse(productoEnCarritoLS);
+    actualizarNumero ()
+}else{
+    productoEnCarrito = [];
+}
+
+function agregarAlcarrito (e) {
+    const idBoton = e.currentTarget.id ;
+    const productoAgregado = Cards.find(card => card.id === idBoton);
+
+    if ( productoEnCarrito.some (card => card.id === idBoton) ){
+
+        const index = productoEnCarrito.findIndex(card => card.id === idBoton)
+        productoEnCarrito[index].cantidad++;
+    } else {
+
+        productoAgregado.cantidad = 1;
+        productoEnCarrito.push(productoAgregado);
+    
+    }
+    
+    actualizarNumero ();
+    
+    localStorage.setItem('productos-en-carrito', JSON.stringify(productoEnCarrito));
+}
+
+
+function actualizarNumero (){
+    let nuevoNumero = productoEnCarrito.reduce((acc, card) => acc + card.cantidad, 0)
+    numerito.innerText = (nuevoNumero);
+}

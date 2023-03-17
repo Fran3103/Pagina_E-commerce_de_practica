@@ -1,10 +1,9 @@
 @import url(/css/Sass/cssreload.css);
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Signika:wght@300;500&display=swap");
 body {
-  background: linear-gradient(hsl(168, 45%, 49%), hsl(204, 70%, 81%)) no-repeat;
+  background: hsl(168, 45%, 49%);
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Signika", sans-serif;
 }
 body a {
@@ -21,8 +20,6 @@ body .menu_lista {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   padding: 1rem;
 }
@@ -50,6 +47,7 @@ aside {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 40%;
   justify-content: space-between;
   top: 0;
   left: 0;
@@ -97,10 +95,24 @@ aside .menu_btn {
   font-size: 0.75rem;
   font-family: "Signika", sans-serif;
   text-shadow: -1px 2px 1px hsl(168, 55%, 65%);
+  border-radius: 10px 0 0 10px;
 }
-aside .menu_btn:hover {
-  background-color: hsl(204, 70%, 81%);
+aside .menu_carrito {
+  margin-top: 30px;
+  list-style: none;
   color: hsl(210, 29%, 21%);
+  text-shadow: -1px 2px 1px hsl(168, 55%, 65%);
+  background-color: hsl(168, 45%, 49%);
+}
+aside .menu_carrito span {
+  background-color: hsl(204, 70%, 81%);
+  border: 1px solid hsl(168, 55%, 65%);
+  box-shadow: 0 0 10px 1px hsl(210, 29%, 21%);
+  width: 20px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
 }
 aside footer {
   font-size: 0.7rem;
@@ -120,9 +132,12 @@ aside footer a {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
+  background-color: hsl(204, 70%, 81%);
+  margin: 1rem;
+  margin-left: 0;
+  margin-bottom: 12rem;
+  border-radius: 2rem;
+  padding: 3rem;
 }
 main .titulo_principal {
   font-size: 1.7rem;
@@ -132,6 +147,9 @@ main .contenedor_modelos {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   gap: 30px;
 }
 main .contenedor_modelos .modelo {
@@ -142,7 +160,7 @@ main .contenedor_modelos .modelo {
 }
 main .contenedor_modelos .modelo img {
   align-items: center;
-  width: 70%;
+  width: 100%;
   margin-bottom: 50px;
   padding: 5px;
 }
@@ -174,10 +192,91 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
   color: hsl(210, 29%, 21%);
 }
 
+.carrito_container {
+  height: 100%;
+  margin-top: 10px;
+}
+
+.carrito_txt {
+  font-size: 2rem;
+}
+
+.contenedor_carrito {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.contenedor_carrito .autos_en_carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: hsl(168, 45%, 49%);
+  border-radius: 20px;
+  width: 100%;
+}
+.contenedor_carrito .autos_en_carrito img {
+  width: 10%;
+  padding-left: 20px;
+}
+.contenedor_carrito .autos_en_carrito .eliminar {
+  padding-right: 20px;
+}
+
+.carrito_acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.vaciar_carrito {
+  border: 0;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: "Signika", sans-serif;
+  color: hsl(192, 15%, 94%);
+  text-align: center;
+  background-color: hsl(168, 55%, 65%);
+}
+
+.comprar {
+  display: flex;
+}
+
+.total_carrito {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  font-size: "Signika", sans-serif;
+  color: hsl(192, 15%, 94%);
+  text-align: center;
+  background-color: hsl(168, 55%, 65%);
+}
+
+.comprar_ahora {
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  font-size: "Pacifico", cursive;
+  color: hsl(192, 15%, 94%);
+  text-align: center;
+  font-size: 1rem;
+  background-color: hsl(168, 45%, 49%);
+}
+
+.disable {
+  display: none;
+}
+
 @media screen and (min-width: 740px) {
   aside {
     padding: 5rem;
     padding-right: 0;
+    width: 40%;
   }
   aside h2 {
     font-size: 1.2rem;
@@ -207,9 +306,9 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
   .container {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    gap: 20px;
   }
   aside {
+    width: 20.7%;
     grid-column: 1;
     padding: 2rem;
     padding-right: 0;
@@ -222,6 +321,23 @@ main .contenedor_modelos .modelo .detalles_modelo button:hover {
     transition: none;
     box-shadow: none;
     opacity: 1;
+  }
+  aside .activo {
+    background-color: hsl(204, 70%, 81%);
+    color: hsl(210, 29%, 21%);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+  }
+  aside .activo::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    bottom: -7px;
+    right: -40px;
+    border-radius: 10px 0 0 10px;
+    background-color: hsl(204, 70%, 81%);
   }
   aside .menu_close {
     display: none;

@@ -26,28 +26,10 @@
                 <ul class="menu_lista">
 
                     <li>
-                        <button id="todos" class="menu_btn activo">Todos </button>
+                        <a href="/index.html" id="carrito_volver" class="menu_volver  menu_btn">Volver</a>
                     </li>
                     <li>
-                        <button id="chevrolet" class="menu_btn ">Chevrolet</button>
-                    </li>
-                    <li>
-                        <button id="fiat" class="menu_btn ">Fiat</button>
-                    </li>
-                    <li>
-                        <button id="ford" class="menu_btn ">Ford</button>
-                    </li>
-                    <li>
-                        <button id="peugeot" class="menu_btn ">Peugeot</button>
-                    </li>
-                    <li>
-                        <button id="renault" class="menu_btn ">Renault</button>
-                    </li>
-                    <li>
-                        <button id="volkswagen" class="menu_btn ">Volkswagen</button>
-                    </li>
-                    <li>
-                        <a href="/carrito.html" id="carrito" class="menu_carrito menu_btn">Carrito <span class="numero">0</span> </a>
+                        <a href="/carrito.html" id="carrito" class="menu_carrito menu_btn activo">Carrito  </a>
                     </li>
                 </ul>
                 
@@ -57,27 +39,48 @@
         </footer>
 
         </aside>
-        <main>
+        <main id="carrito_container">
 
-            <h2 id="titulo_principal" class="titulo_principal">Todos los modelos</h2>
+            <h2 id="titulo_principal" class="titulo_principal">Carrito</h2>
+            <p class="carrito_txt" id="carrito-vacio">
+                Tu Carrito esta vacio
+            </p>
+        
 
-
-            <div itemid="contenedor_modelos" class="contenedor_modelos" id="contenedor_modelos">
-                
-
-
-
-
-
+            <div  class="contenedor_carrito disable " id="productos" >
             </div>
+                
+                <div class="carrito_acciones  disable" id="carrito_acciones">
+                    <div class="vaciar">
+                        <button class="vaciar_carrito">Vaciar Carrito</button>
+                    </div>
+                    <div class="comprar">
+                        <div class="total_carrito">
+                            <p>Total</p>
+                            <p class="total"> 2300000</p>
+                        </div>
+                        <p class="comprar_ahora">Comprar Ahora</p>
+                    </div>
+                </div>
 
+
+
+
+
+            
+            <p class="carrito_txt disable" id="gracias">
+                Gracias por tu compra
+            </p>
 
 
         </main>
 
     </div>
 
-<script src="/js/index.js"></script>
-<script src="/js/menu.js"></script>
+
+
+    <script src="/js/carrito.js"></script>
+    <script src="/js/menu.js"></script>
+    
 </body>
 </html>
